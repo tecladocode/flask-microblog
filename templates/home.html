@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="title"><img class="logo" src="/static/assets/logo.svg" /> Microblog</div>
+            <div class="menu">
+                <div class="menu-item">Recent</div>
+                <div class="menu-item">Calendar</div>
+            </div>
+        </header>
+
+        <div class="container">
+            <form method="POST">
+                <textarea name="content"></textarea>
+                <input type="submit" />
+            </form>
+
+            <div class="entries">
+                {% for entry in entries %}
+                <div class="entry">
+                    <div class="entry-title">
+                        {{ entry[0] | truncate(30, true) }}
+                        <span class="entry-date">• {{ entry[1] }}</span>
+                    </div>
+                    <p class="entry-content">{{ entry[0] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="left">
+                    <a class="footer-item">Made by Jose Salvatierra</a>
+                    <a class="footer-item">Check out my other project</a>
+                </div>
+                <div class="right">
+                    <div class="footer-section">
+                        <a class="footer-item">Recent</a>
+                        <a class="footer-item">Calendar</a>
+                    </div>
+                    <div class="footer-section">
+                        <a class="footer-item">About</a>
+                        <a class="footer-item">How this was made</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
